@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import Button from './components/Button';
 import ButtonStyle from './components/ButtonStyle';
@@ -24,9 +25,26 @@ let user2 = {
 
 const btnStyle = { color: "red", backgroundColor: 'bisque' };
 
-
+type User = {
+  id: number;
+  name: string;
+}
 
 function App() {
+  const [count, setCount] = useState<true | false>(true);
+  // const [user, setUser] = useState<null | User>(null);
+  const [user, setUser] = useState<User>({} as User);
+
+  const handleOnClick = () => {
+    // setCount(count = count + 1);
+    setCount(!count);
+  };
+
+  const handleAddUser = () => {
+    setUser({ id: 1, name: "Akash" });
+    console.log(user);
+  }
+
   return (
     <div className="App">
       {/* <h1>User Management</h1> */}
@@ -46,8 +64,15 @@ function App() {
       {/* <Button>click me</Button> */}
       {/* <Post></Post> */}
 
-      <h2>Style Props</h2>
-      <ButtonStyle btnStyle={btnStyle}></ButtonStyle>
+      {/* <h2>Style Props</h2>
+      <ButtonStyle btnStyle={btnStyle}></ButtonStyle> */}
+
+      <h2>UseState Hook Props</h2>
+      <h1>{count ? "True" : "False"}</h1>
+      <button onClick={() => handleOnClick()}>Increment</button>
+      <button onClick={() => handleAddUser()}>Add User</button>
+      {/* <p>{user?.id}</p> */}
+      <p>{user.id}</p>
     </div>
   );
 }
