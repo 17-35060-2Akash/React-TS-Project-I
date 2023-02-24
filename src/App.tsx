@@ -1,4 +1,7 @@
 import './App.css';
+import Button from './components/Button';
+import DataFetch from './components/DataFetch';
+import Post from './components/Post';
 import User from './components/User';
 import UserDemo from './components/UserDemo';
 import UserV2 from './components/UserV2';
@@ -33,7 +36,14 @@ function App() {
       {/* <UserV2 user={user2}></UserV2> */}
 
       {/* Array of objects  */}
-      <UserDemo users={users}></UserDemo>
+      {/* <UserDemo users={users}></UserDemo> */}
+
+      {/* fetching data  */}
+      {/* <DataFetch status="loading"></DataFetch> */}
+
+      {/* typing children props  */}
+      <Button>click me</Button>
+      <Post></Post>
 
     </div>
   );
